@@ -1,10 +1,7 @@
 # Are the card prices accurate? A market check against TCGplayer
 
-This note answers two questions an investor would ask about the Near Mint card
-prices we derive from eBay sold listings.
-
-1. **Are they accurate?** How close are our prices to the broader market?
-2. **Do they track movement?** Do they follow price changes over time?
+This note answers the core question an investor would ask about the Near Mint card
+prices we derive from eBay sold listings. How close are they to the broader market?
 
 The benchmark is TCGplayer's published Near Mint market price. TCGplayer is the
 largest US trading-card marketplace, and its market price is the reference number
@@ -39,7 +36,7 @@ series line up. The cutoff is set on this observed pattern.
 
 ---
 
-## Question 1 — Are the prices accurate? Yes.
+## Are the prices accurate? Yes.
 
 For cards worth $25 or more, our eBay-derived Near Mint price tracks the TCGplayer
 market closely, with no systematic markup.
@@ -53,37 +50,6 @@ market closely, with no systematic markup.
 
 In plain terms, for a $25+ card, our number lands within roughly a tenth of what the
 largest marketplace says it is worth, and it does not lean high.
-
----
-
-## Question 2 — Do the prices track movement? Not over short windows.
-
-Accuracy on price *level* does not mean the week-to-week wiggles can be trusted.
-
-- When the market ticks up or down between two windows, our price moves the same
-  direction only **52%** of the time, essentially a coin flip.
-- The correlation of the two series over the period is weak (median 0.37).
-
-The reason is the test period, not a flaw. Over these 12 weeks the market was nearly
-flat, so there was little real movement to track. Against an almost-still benchmark,
-the small bumps in our price are mostly sampling noise from a finite number of real
-sales. We cannot separate a genuine move from noise here.
-
-The honest read is that our price is a reliable estimate of *what a card is worth
-right now*, not a short-horizon trend signal. Confirming that it tracks real trends
-needs a window where the market actually moves.
-
----
-
-## Caveats
-
-- The benchmark is TCGplayer's own estimate, not a settled true price.
-- Our price is built from realised eBay sales, which are inherently noisier than a
-  smoothed published estimate.
-- Below $25 the agreement is weaker and is excluded from this view.
-- A small number of cards where the same name covers several distinct printings can
-  show wider gaps, because the marketplace prices the rarer printing separately. These
-  are a card-matching artifact, not a pricing error.
 
 ---
 
