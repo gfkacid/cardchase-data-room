@@ -14,7 +14,7 @@ Near Mint prices from eBay sold listings vs TCGplayer market price.
 - [`pikachu276_nm_daily.csv`](pricing-validation/pikachu276_nm_daily.csv)
 - [`reproduce/`](pricing-validation/reproduce/)
 
-**Headline.** $25+ cards: our price tracks TCGplayer within ~11% (median), no upward bias.
+**Headline.** Pikachu ex 276 example: 486 NM sales over 26 days, 8.6% gap vs TCGplayer, 1.17x ratio. Across 75 cards ($25+): tracks within ~11% (median), no upward bias.
 
 ### [data-quality/](data-quality/)
 
