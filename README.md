@@ -11,6 +11,7 @@ Near Mint prices from eBay sold listings vs TCGplayer market price.
 - [`pricing-validation-investor.md`](pricing-validation/pricing-validation-investor.md)
 - [`pricing_comparison_sample.csv`](pricing-validation/pricing_comparison_sample.csv)
 - [`pricing_comparison_summary.csv`](pricing-validation/pricing_comparison_summary.csv)
+- [`pikachu276_nm_daily.csv`](pricing-validation/pikachu276_nm_daily.csv)
 - [`reproduce/`](pricing-validation/reproduce/)
 
 **Headline.** $25+ cards: our price tracks TCGplayer within ~11% (median), no upward bias.

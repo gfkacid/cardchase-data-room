@@ -85,8 +85,9 @@ The full daily breakdown is in `pikachu276_nm_daily.csv`.
 - `pikachu276_nm_daily.csv` — 26-day (May 2–May 27 2026) daily Near Mint breakdown
   for Pikachu ex 276: eBay count, median/avg price, gold vs CardChase split,
   TCGPlayer NM market price, and CardChase fair market value per day.
-- `build_investor_dataset.py` — the script that produced the two CSVs from the
-  validation snapshot. No scraping or network access.
+- `reproduce/build_dataset.py` — the script that produced the two CSVs from the
+  validation snapshot. No scraping or network access. See `reproduce/README.md`
+  before re-running.
 
 Columns in `pricing_comparison_sample.csv`:
 
