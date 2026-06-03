@@ -30,7 +30,7 @@ is not a short-horizon trend signal over the flat 12-week test window.
 Seller-side TAM for **Pokémon TCG** sold comps (oracle-matched catalog cards).
 
 - [`ebay-seller-tam-investor.md`](ebay-seller-tam/ebay-seller-tam-investor.md) — 90-day
-  GMV, seller counts, concentration, reproduction (as of 2026-06-03).
+  GMV, seller counts, concentration (as of 2026-06-03).
 
 **Headline.** Mar–May 2026: **~$32M** Pokémon TCG comps GMV, **~58k** sellers,
 **~214k** transactions (~2.9k catalog cards).
