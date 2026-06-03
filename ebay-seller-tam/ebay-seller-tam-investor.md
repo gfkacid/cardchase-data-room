@@ -1,137 +1,113 @@
-# eBay seller TAM — aggregate metrics from sold comps
+# eBay seller TAM — Pokémon TCG sold comps (filtered)
 
-This note sizes the **seller side** of the Pokémon graded-card comps we capture from
-eBay sold listings. It answers how much transaction volume and how many distinct sellers
-appear in our lake, and how concentrated that activity is.
+This note sizes the **seller side** of **Pokémon TCG** sold listings in our eBay comps
+lake. Figures include only rows we treat as correctly matched Pokémon catalog cards.
 
-**Headline.** In the last 90 days of our watchlist scrape (Mar–May 2026), we observe
-**~$54M** in sold comps GMV across **~74k** unique sellers and **~310k** transactions,
-with a fragmented long tail and a meaningful whale tier (~370 sellers above $10k GMV
-each in that window). Annualized at the recent 90-day pace, that is roughly **~$217M/yr**
-in comps GMV **within our card universe** — not total eBay Pokémon.
+**Headline (last 90 days, Mar–May 2026).** **~$32M** comps GMV, **~214k** transactions,
+**~58k** unique sellers, **~2,900** distinct `pokemontcg_id`s (145 sets). At the
+90-day pace, roughly **~$129M/yr** in **Pokémon TCG comps GMV** for cards we scrape —
+not total eBay Pokémon, not other TCGs.
 
 ---
 
-## What this measures (and what it does not)
+## Filter — what “Pokémon TCG focus” means
 
-**In scope**
+All figures below apply **all** of:
 
-- **GMV:** sum of `price_usd` on sold comps in `silver_sales.parquet`.
-- **Sellers:** public eBay usernames parsed from search-result attribute text
-  (`seller_name`, plus feedback % and count).
-- **Universe:** cards on the CardChase eBay watchlist (~2,987 `pokemontcg_id`s,
-  145 sets) — a deliberate sample, not all of eBay TCG.
+| Rule | Rationale |
+|------|-----------|
+| `match_confidence` ∈ **`agree`**, **`ambiguous_resolved`** | Same oracle gate as gold comps: title supports the catalog `pokemontcg_id`. Drops `disagree_*`, `ambiguous_unresolved`, and `junk` (~$22M / 96k rows excluded in 90d). |
+| `pokemontcg_id` present | Row tied to the internal Pokémon TCG catalog. |
+| `price_usd` > 0 | Priced sold comp. |
+| `seller_name` present; exclude grader-token names (`psa`, `cgc`, …) | Real seller handles only; drops parse artifacts. |
 
-**Out of scope**
+**Scrape intent:** eBay category **183454** (Pokémon CCG individual cards) and
+per-card keyword searches from the pokemontcg catalog. This is **Pokémon TCG only** by
+design; the filter above removes mis-attributed listings that still landed in silver.
 
-- **Buyers:** eBay does not expose buyer identity on public sold search; we do not
-  track them.
-- **Full eBay TAM:** extrapolating to all Pokémon on eBay would require a wider scrape
-  or external market estimates.
-- **Gold layer:** consumer `gold_ebay_sales` drops seller columns; this analysis uses
-  **silver** only.
+**Out of scope:** buyers (not on public sold pages), Magic/Yu-Gi-Oh/sports as primary
+categories, cards never searched, and comps we cannot verify as the claimed Pokémon card.
 
-**Data source:** `s3://cardchase-scraper-dev/ebay_scraper/silver/silver_sales.parquet`
-(region `eu-north-1`). **As of:** 2026-06-03 (342,482 rows; sale dates 2020-02-21 →
-2026-05-31).
-
-**Cleaning:** ~18% of raw GMV had `seller_name` matching grader tokens (`psa`, `cgc`,
-etc.) from parse noise on titles. Figures below **exclude** those names. Top artifact
-before cleaning: `psa` at ~$12M (22k rows) — not a real seller.
+**Data:** `s3://cardchase-scraper-dev/ebay_scraper/silver/silver_sales.parquet`
+(`eu-north-1`). **As of:** 2026-06-03.
 
 ---
 
-## Headline TAM (cleaned sellers, last 90 days)
+## Headline TAM (90 days)
 
-Window: **2026-03-02 → 2026-05-31** (90 days ending latest sale in lake).
+Window: **2026-03-02 → 2026-05-31**.
 
 | Metric | Value |
 |--------|------:|
-| **GMV (USD)** | **$53.6M** |
-| **Transactions** | 310,053 |
-| **Unique sellers** | 73,630 |
-| **Average order value** | $173 |
-| **GMV per seller (mean)** | $728 |
-| **Unique cards (pokemontcg_id)** | 2,987 |
+| **GMV (USD)** | **$31.9M** |
+| **Transactions** | 213,760 |
+| **Unique sellers** | 58,373 |
+| **Average order value** | $149 |
+| **Unique Pokémon cards (`pokemontcg_id`)** | 2,924 |
 | **Unique sets** | 145 |
 
-**Run-rate (90-day pace annualized):** ~**$217M/yr** GMV (`× 365.25 / 90`).
+**Run-rate (90-day annualized):** ~**$129M/yr** (`× 365.25 / 90`).
 
-**May 2026 alone** (heaviest scrape month): $39.6M GMV, 246,947 txns, 63,445 sellers.
-May × 12 ≈ **$476M/yr** — an upper bound while scrape volume is still ramping; prefer
-the 90-day figure for a steadier read.
+**May 2026** (heaviest scrape month, same filter): **$24.3M** GMV, 175,746 txns,
+50,665 sellers. May × 12 ≈ **$291M/yr** — upper bound while volume is still ramping.
 
-**All-time in lake (cleaned):** $55.1M GMV, 319,600 txns, 74,671 sellers. Most history
-predates the 2026 scrape ramp; all-time annualization is misleading.
+**In-lake total (same filter, all sale dates):** $32.6M GMV — almost identical to 90d
+because the scrape ramped in 2026; do not treat “all-time” as years of history.
 
 ---
 
 ## Addressable seller base (90-day GMV thresholds)
 
-Sellers active at each cumulative GMV level in the 90-day window:
-
 | Min 90d GMV per seller | Sellers | Share of 90d GMV |
 |------------------------|--------:|------------------:|
-| ≥ $100 | 35,990 | 97.5% |
-| ≥ $500 | 13,727 | 87.7% |
-| ≥ $1,000 | 7,266 | 79.2% |
-| ≥ $5,000 | 1,008 | 55.7% |
-| ≥ $10,000 | 369 | 47.5% |
-| ≥ $50,000 | 55 | 37.3% |
-| ≥ $100,000 | 28 | 33.8% |
+| ≥ $500 | 9,540 | 84.2% |
+| ≥ $1,000 | 4,829 | 73.8% |
+| ≥ $5,000 | 601 | 47.6% |
+| ≥ $10,000 | 204 | 39.1% |
 
-**Read:** ~**7.3k** sellers did ≥$1k in watchlist comps in 90 days; ~**370** did ≥
-$10k (a practical “pro” tier for this slice).
+**Read:** ~**4.8k** sellers with ≥$1k in verified Pokémon comps (90d); ~**204** with ≥
+$10k.
 
 ---
 
-## Market structure
+## Market structure (90 days)
 
-**Concentration (90d GMV, cleaned)**
+**Concentration**
 
 | Top N sellers | % of GMV |
 |---------------|----------:|
-| 10 | 28.2% |
-| 50 | 36.8% |
-| 100 | 40.2% |
-| 500 | 49.7% |
-| 1,000 | 55.6% |
+| 10 | 22.6% |
+| 50 | 31.3% |
+| 100 | 34.9% |
+| 500 | 45.9% |
 
-Seller HHI ≈ **431** (on a 10,000 scale) — **fragmented** long tail; not winner-take-all
-in this sample.
+Seller HHI ≈ **380** (10k scale) — fragmented long tail.
 
-**By eBay lifetime feedback (proxy tier, 90d GMV)**
+**By eBay lifetime feedback (proxy tier)**
 
 | Tier | Sellers | % of 90d GMV |
 |------|--------:|-------------:|
-| Small (100–1K feedback) | 30,871 | 29.8% |
-| Large (10K–100K) | 858 | 21.7% |
-| Micro (<100) | 33,106 | 19.8% |
-| Mid (1K–10K) | 8,735 | 16.8% |
-| Power (100K+) | 60 | 11.8% |
+| Small (100–1K) | 24,797 | 31.8% |
+| Micro (<100) | 25,817 | 23.2% |
+| Large (10K–100K) | 701 | 16.4% |
+| Mid (1K–10K) | 7,007 | 16.4% |
+| Power (100K+) | 51 | 12.2% |
 
-**Grade mix (all-time GMV):** PSA 10 ≈ 40%; PSA 9 ≈ 12%; raw NM ≈ 5%.
+**Grade mix (90d GMV):** PSA 10 dominates; graded slabs are the majority of dollar volume.
 
-**Trust:** sellers with 100% positive feedback → **46%** of all-time GMV.
-
-**Oracle-quality comps** (`match_confidence` in `agree`, `ambiguous_resolved`):
-**60%** of all-time GMV; **60%** of 90d GMV (~$32M of ~$54M).
+**Trust:** sellers with 100% positive feedback → **~48%** of 90d GMV.
 
 ---
 
-## Top sellers (90d, cleaned)
+## Top sellers (90d, Pokémon TCG filter)
 
 | Seller | 90d GMV | Txns |
 |--------|--------:|-----:|
-| zandgemporium | $4.4M | 3,878 |
-| probstein123 | $3.6M | 4,083 |
-| mirmex | $3.0M | 327 |
-| dcsports87 | $1.1M | 4,823 |
-| slapauction | $812k | 1,933 |
-| ryans_cardhouse | $559k | 443 |
-
-*(Full tables available on request; single-transaction outliers like nathacostanz_0
-are high-AOV one-offs.)*
+| zandgemporium | $2.7M | 2,377 |
+| probstein123 | $2.0M | 2,664 |
+| dcsports87 | $828k | 3,894 |
+| slapauction | $395k | 1,029 |
+| ryans_cardhouse | $388k | 307 |
 
 ---
 
@@ -139,60 +115,56 @@ are high-AOV one-offs.)*
 
 | Lens | Estimate | Meaning |
 |------|----------|---------|
-| **Observed comps TAM** | ~$55M | Cumulative GMV in silver for watchlist cards |
-| **Current run-rate** | ~$217M/yr | 90-day GMV annualized |
-| **Aggressive run-rate** | ~$476M/yr | May 2026 × 12 (scrape still scaling) |
-| **Addressable sellers (≥$1k / 90d)** | ~7,300 | Meaningful volume in our comp set |
-| **Whale sellers (≥$10k / 90d)** | ~370 | High-touch segment |
+| **90d Pokémon comps GMV** | ~$32M | Verified Pokémon catalog matches only |
+| **Run-rate** | ~$129M/yr | 90d pace annualized |
+| **Addressable sellers (≥$1k / 90d)** | ~4,800 | Active in verified Pokémon comps |
+| **Whale sellers (≥$10k / 90d)** | ~204 | High-volume segment |
 
-These numbers size **comps GMV and seller activity in our scraped card universe**, useful
-for data-product TAM, seller tooling, and marketplace adjacency — not as total eBay
-Pokémon GMV without widening the watchlist or adding third-party market totals.
+This sizes **seller activity on Pokémon TCG sold comps we trust**, for ~3k catalog cards
+we search — useful for data product and seller tooling TAM, not as total eBay Pokémon
+GMV.
 
 ---
 
 ## Caveats
 
-1. **Watchlist sample** — not exhaustive eBay TCG; expanding cards changes GMV and
-   seller counts.
-2. **Scrape ramp** — May 2026 dominates recent volume; use 90-day or forward months for
-   run-rate, not full 2020–2026 span.
-3. **Seller parse** — username extracted from SRP `listing_attrs` regex; grader-token
-   false positives removed for this note; pipeline improvement would tighten totals.
-4. **No seller user id** — only public handles; profile URLs derivable as
-   `https://www.ebay.com/usr/{seller_name}` but not stored in silver today.
-5. **Silver vs gold** — investor-facing comps in gold omit seller; this analysis is
-   silver-only.
+1. **Card coverage** — ~2,900 `pokemontcg_id`s searched to date, not every Pokémon card
+   on eBay (current grade watchlist is 150 cards; historical searches widen coverage).
+2. **Scrape ramp** — May 2026 dominates; use 90-day window for run-rate.
+3. **Stricter alternative** — `agree` only (~$25M / 90d) if you want the tightest
+   title↔card match; this note uses oracle (`agree` + `ambiguous_resolved`) to align with gold.
+4. **Seller parse** — usernames from SRP `listing_attrs`; grader names excluded.
+5. **Silver only** — gold drops seller columns.
 
 ---
 
 ## Reproduction
-
-From a machine with AWS profile `cardchase` and repo `cardchase-lake-of-rage`:
 
 ```bash
 aws s3 cp s3://cardchase-scraper-dev/ebay_scraper/silver/silver_sales.parquet /tmp/silver_sales.parquet \
   --profile cardchase --region eu-north-1
 
 uv run python - <<'PY'
-# Aggregate script — exclude grader-token seller names; 90d window from max(sale_date).
-import re
 from datetime import timedelta
 import polars as pl
 
 SUSPECT = {"psa", "cgc", "bgs", "ace", "tag", "gem", "mint", "nm", "lp"}
+ORACLE = ["agree", "ambiguous_resolved"]
+
 df = pl.read_parquet("/tmp/silver_sales.parquet")
-base = df.filter(
-    pl.col("seller_name").is_not_null()
+poke = df.filter(
+    pl.col("match_confidence").is_in(ORACLE)
+    & pl.col("pokemontcg_id").is_not_null()
+    & pl.col("seller_name").is_not_null()
     & (pl.col("price_usd") > 0)
     & ~pl.col("seller_name").is_in(list(SUSPECT))
 )
-cut = base["sale_date"].max() - timedelta(days=90)
-recent = base.filter(pl.col("sale_date") >= cut)
-print("90d GMV", recent["price_usd"].sum())
+cut = poke["sale_date"].max() - timedelta(days=90)
+recent = poke.filter(pl.col("sale_date") >= cut)
+print("Pokémon TCG 90d GMV", recent["price_usd"].sum())
 print("sellers", recent["seller_name"].n_unique())
 print("txns", recent.height)
 PY
 ```
 
-Schema and pipeline context: `cardchase-lake-of-rage` → `docs/lakehouse-schema.md`.
+Pipeline context: `cardchase-lake-of-rage` → `docs/lakehouse-schema.md`.
