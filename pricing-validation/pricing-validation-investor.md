@@ -27,12 +27,11 @@ The full daily breakdown is in `pikachu276_nm_daily.csv`.
 
 Across 75 cards priced at $25 or more, the same pattern holds. Our eBay-derived Near Mint price tracks TCGplayer within **11% (median)**, with no upward bias. Our price runs slightly below the market (median ratio 0.97x) and is above the market in only 39% of windows.
 
-`pricing_comparison_summary.csv` has one row per card. `pricing_comparison_sample.csv` has the full time series for 10 representative cards spanning $28 to $1,075.
+`pricing_comparison_summary.csv` has one row per card for all 75.
 
 ---
 
 ## Files
 
 - `pricing_comparison_summary.csv` — one row per card for all 75: median eBay price, TCGplayer median, typical gap, and price ratio.
-- `pricing_comparison_sample.csv` — 3-day price series for 10 representative cards.
 - `pikachu276_nm_daily.csv` — 26-day daily Near Mint breakdown for Pikachu ex 276.

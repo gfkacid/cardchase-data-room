@@ -9,10 +9,8 @@ Diligence materials for CardChase.
 Near Mint prices from eBay sold listings vs TCGplayer market price.
 
 - [`pricing-validation-investor.md`](pricing-validation/pricing-validation-investor.md)
-- [`pricing_comparison_sample.csv`](pricing-validation/pricing_comparison_sample.csv)
 - [`pricing_comparison_summary.csv`](pricing-validation/pricing_comparison_summary.csv)
 - [`pikachu276_nm_daily.csv`](pricing-validation/pikachu276_nm_daily.csv)
-- [`reproduce/`](pricing-validation/reproduce/)
 
 **Headline.** Pikachu ex 276 example: 486 NM sales over 26 days, 8.6% gap vs TCGplayer, 1.17x ratio. Across 75 cards ($25+): tracks within ~11% (median), no upward bias.
 
