@@ -1,7 +1,6 @@
 # eBay seller TAM — Pokémon TCG sold comps
 
-Seller-side sizing for **Pokémon TCG** sold listings matched to our card catalog and
-included in CardChase comps (oracle quality: title supports the claimed `pokemontcg_id`).
+Matched to our card catalog.
 
 **Headline (last 90 days, Mar–May 2026).** **~$32M** comps GMV, **~214k** transactions,
 **~58k** unique sellers, **~2,900** catalog cards across **145** sets. At the 90-day
