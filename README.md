@@ -27,12 +27,10 @@ is not a short-horizon trend signal over the flat 12-week test window.
 
 ### [ebay-seller-tam/](ebay-seller-tam/)
 
-How large is the seller side of **Pokémon TCG** sold comps we trust? Filtered to oracle
-card matches (`agree` / `ambiguous_resolved`) from `silver_sales.parquet`.
+Seller-side TAM for **Pokémon TCG** sold comps (oracle-matched catalog cards).
 
-- [`ebay-seller-tam-investor.md`](ebay-seller-tam/ebay-seller-tam-investor.md) — TAM
-  metrics, filter definition, caveats, reproduction (as of 2026-06-03).
+- [`ebay-seller-tam-investor.md`](ebay-seller-tam/ebay-seller-tam-investor.md) — 90-day
+  GMV, seller counts, concentration, reproduction (as of 2026-06-03).
 
-**Headline.** Last 90 days (Mar–May 2026): **~$32M** Pokémon TCG comps GMV, **~58k**
-sellers, **~214k** transactions (~2.9k catalog cards); ~**$129M/yr** at the 90-day
-pace. Not full eBay Pokémon; buyers not tracked.
+**Headline.** Mar–May 2026: **~$32M** Pokémon TCG comps GMV, **~58k** sellers,
+**~214k** transactions (~2.9k catalog cards); ~**$129M/yr** at the 90-day pace.
