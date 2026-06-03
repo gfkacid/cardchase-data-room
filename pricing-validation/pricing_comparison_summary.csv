@@ -1,0 +1,76 @@
+card,card_id,comparison_windows,ebay_median_nm_usd,tcgplayer_median_nm_usd,median_abs_diff_pct,ebay_vs_tcg_ratio
+Pikachu ex,me2pt5-276,25,1180.0,1075.17,16.9,1.169
+Mew ex,sv4pt5-232,8,877.09,893.06,5.6,0.965
+Mega Charizard X ex,me2-125,7,900.0,835.71,8.1,1.08
+Mega Dragonite ex,me2pt5-290,8,925.0,830.58,9.6,1.096
+Mega Charizard Y ex,me2pt5-294,26,592.36,525.62,11.1,0.982
+Pikachu ex,me2pt5-277,7,538.88,469.24,13.2,1.132
+Team Rocket's Mewtwo ex,me2pt5-281,8,479.99,457.1,4.9,1.043
+Mega Dragonite ex,me2pt5-295,17,299.77,333.64,10.3,0.946
+Cynthia's Garchomp ex,sv10-232,19,249.99,246.28,5.0,0.954
+Mega Gardevoir ex,me1-178,18,179.99,196.67,8.2,0.954
+Reshiram ex,rsv10pt5-166,21,176.15,191.43,4.1,0.977
+Venusaur ex,sv3pt5-198,11,130.0,136.92,6.7,0.956
+Milotic ex,sv8-237,11,122.5,131.01,4.8,0.952
+Bulbasaur,sv7-143,9,109.95,125.73,4.7,0.953
+Squirtle,sv7-148,12,117.56,121.87,2.8,0.975
+Charmander,sv3pt5-168,8,99.97,118.4,14.3,0.857
+Squirtle,sv3pt5-170,6,90.59,112.76,21.8,0.782
+Team Rocket's Nidoking ex,sv10-233,7,114.44,112.19,1.9,1.005
+Charizard ex,sv3-223,15,121.12,110.59,15.3,1.085
+Team Rocket's Moltres ex,sv10-229,8,109.62,108.0,20.1,1.015
+Psyduck,me2pt5-226,7,106.64,98.17,4.6,1.023
+Mega Gengar ex,me2pt5-269,11,95.0,89.74,11.1,1.111
+Bulbasaur,sv3pt5-166,7,74.0,89.13,19.1,0.869
+Pikachu,sv3pt5-173,9,80.5,88.17,24.1,0.876
+Jessie & James,sm115-68,9,74.99,84.71,13.1,0.869
+Charmeleon,sv3pt5-169,8,27.31,82.1,66.3,0.337
+Alakazam ex,sv3pt5-201,12,80.87,81.34,10.8,1.019
+Wartortle,sv3pt5-171,6,32.95,74.53,57.3,0.44
+Mew,cel25-25,7,64.69,73.75,11.0,0.89
+Psyduck,sv3pt5-175,11,60.21,71.8,33.2,0.767
+Salamence ex,sv9-187,9,65.0,70.82,14.7,0.918
+Team Rocket's Crobat ex,sv10-234,16,70.0,67.96,5.9,1.05
+Hilda,rsv10pt5-171,10,52.75,64.14,18.0,0.82
+Mega Dragonite ex,me2pt5-271,16,63.99,60.89,7.0,1.057
+Ivysaur,sv3pt5-167,9,46.2,58.34,48.8,0.778
+Tinkaton ex,sv2-262,19,46.84,57.77,16.0,0.84
+Poliwhirl,sv3pt5-176,8,38.44,53.58,33.9,0.676
+Chansey,sv6-187,13,58.78,53.32,9.7,1.086
+Duskull,sv6pt5-68,23,40.47,53.03,21.3,0.787
+Ninetales,sv3-199,9,45.0,51.28,12.2,0.878
+Dragonair,sv3pt5-181,7,49.08,50.73,4.7,0.963
+Dwebble,zsv10pt5-129,9,41.62,48.47,10.4,0.896
+Marill,sv2-204,24,46.21,48.03,14.5,0.896
+Horsea,sv6pt5-67,23,32.5,47.78,20.2,0.798
+Charizard ex,sv3pt5-183,15,48.0,47.59,12.7,1.016
+Cleffa,sv3-202,9,45.0,45.78,5.4,0.983
+Deerling,sv5-165,10,41.64,45.63,9.9,0.901
+Charizard ex,sv3-228,14,46.0,45.22,11.6,1.002
+Minun,sv4-194,20,40.0,43.06,12.5,0.875
+Misty's Lapras,sv10-194,9,35.0,41.27,13.5,0.866
+Mismagius,sv2-212,22,32.76,37.93,16.2,0.853
+Mew ex,sv3pt5-205,8,36.44,36.41,5.1,1.037
+M Venusaur-EX,xy12-100,16,39.91,36.08,20.3,1.104
+Mega Charizard X ex,me2-109,12,38.0,35.99,5.6,1.056
+Mew ex,sv4pt5-216,6,40.0,35.36,13.1,1.131
+Iron Hands ex,sv8pt5-154,17,34.91,35.02,9.5,0.999
+Latios,sv8-203,12,37.51,34.66,13.4,1.072
+Lillipup,rsv10pt5-154,11,31.99,34.19,4.3,0.984
+Acerola's Mischief,me1-183,22,36.43,34.08,10.6,1.05
+Ethan's Typhlosion,sv10-190,10,31.96,33.35,8.0,0.953
+Rayquaza V,swsh7-193,13,35.99,32.89,10.7,1.107
+Cinccino,sv5-183,12,26.98,32.85,10.4,0.982
+Meowscarada ex,sv2-256,16,26.27,32.28,18.2,0.818
+Hisuian Growlithe,sv6-181,9,30.0,31.98,3.6,0.993
+Dawn,me2-129,9,29.6,31.94,6.6,0.96
+Zorua,rsv10pt5-142,10,29.23,31.79,11.8,0.882
+Team Rocket's Meowth,sv10-203,14,29.99,31.15,6.4,0.992
+Lisia's Appeal,sv8-246,17,28.19,30.96,11.2,0.899
+Team Rocket's Ariana,sv10-237,16,28.86,29.04,14.2,0.994
+Durant ex,sv8-236,21,29.32,28.84,12.2,1.079
+Baxcalibur,sv2-210,16,26.37,28.44,14.8,0.865
+Rayquaza,swsh4-138,10,26.61,27.89,10.7,0.963
+Gloom,sv3-198,12,27.3,27.8,3.8,0.977
+Blastoise ex,sv3pt5-184,10,25.98,27.78,9.6,0.944
+Articuno,sv9-161,11,27.49,27.01,11.7,1.065
