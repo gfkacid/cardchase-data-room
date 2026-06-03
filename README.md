@@ -33,4 +33,4 @@ Seller-side TAM for **Pokémon TCG** sold comps (oracle-matched catalog cards).
   GMV, seller counts, concentration, reproduction (as of 2026-06-03).
 
 **Headline.** Mar–May 2026: **~$32M** Pokémon TCG comps GMV, **~58k** sellers,
-**~214k** transactions (~2.9k catalog cards); ~**$129M/yr** at the 90-day pace.
+**~214k** transactions (~2.9k catalog cards).

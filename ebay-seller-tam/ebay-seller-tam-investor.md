@@ -3,8 +3,7 @@
 Matched to our card catalog.
 
 **Headline (last 90 days, Mar–May 2026).** **~$32M** comps GMV, **~214k** transactions,
-**~58k** unique sellers, **~2,900** catalog cards across **145** sets. At the 90-day
-pace, roughly **~$129M/yr** in Pokémon TCG comps GMV for the cards we actively scrape.
+**~58k** unique sellers, **~2,900** catalog cards across **145** sets.
 
 **Data:** `s3://cardchase-scraper-dev/ebay_scraper/silver/silver_sales.parquet`
 (`eu-north-1`). **As of:** 2026-06-03. **Window:** 2026-03-02 → 2026-05-31.
