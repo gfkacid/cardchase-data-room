@@ -24,3 +24,16 @@ market? Benchmarked against TCGplayer's published Near Mint market price.
 **Headline.** For cards worth $25 or more, our price tracks the TCGplayer market within
 about 11% on the typical card, with no upward bias. It is an accurate level estimate. It
 is not a short-horizon trend signal over the flat 12-week test window.
+
+### [ebay-seller-tam/](ebay-seller-tam/)
+
+How large is the seller side of the eBay sold comps we capture? Aggregate GMV, seller
+counts, concentration, and addressable-seller tiers from `silver_sales.parquet`.
+
+- [`ebay-seller-tam-investor.md`](ebay-seller-tam/ebay-seller-tam-investor.md) — TAM
+  metrics, caveats, and reproduction snippet (as of 2026-06-03).
+
+**Headline.** Last 90 days (Mar–May 2026): **~$54M** comps GMV, **~74k** unique sellers,
+**~310k** transactions in our watchlist card universe; ~**$217M/yr** at the recent
+90-day pace. ~**7.3k** sellers with ≥$1k GMV in that window. Not full eBay Pokémon;
+buyers are not tracked.
