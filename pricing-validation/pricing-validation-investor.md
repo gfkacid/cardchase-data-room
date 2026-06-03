@@ -53,6 +53,27 @@ largest marketplace says it is worth, and it does not lean high.
 
 ---
 
+## Pikachu ex 276 deep-dive: liquidity and price accuracy
+
+Pikachu ex 276 (`me2pt5-276`) is the highest-value card in the dataset at roughly $1,300 Near Mint, and also the most liquid. It was re-analysed over the 26-day window May 2–May 27 2026 using three combined sources: the gold eBay scraper, the CardChase production sales database, and TCGPlayer's Near Mint market price. All three sources were filtered to Near Mint only, and eBay records were deduplicated across sources.
+
+**Volume.** 486 Near Mint sales over 26 days — 18.7 per day on average. Every day in the window except one exceeded 10 sales. For a single card, this is a deep, active market with reliable price discovery every day.
+
+**Price accuracy.** The updated numbers for this card in the 26-day window:
+
+| Metric | Value |
+|--------|-------|
+| eBay median NM | $1,299.50 |
+| TCGPlayer NM median | $1,108.22 |
+| Median gap | 8.6% |
+| eBay / TCGPlayer ratio | 1.17x |
+
+The 8.6% gap is inside the 11% typical figure for the full 75-card set, and the 1.17x ratio reflects a period of rapid price appreciation (the card rose from roughly $530 in early March to $1,300 by late May). eBay realised prices lead TCGPlayer's published market price during sharp moves, which accounts for the gap.
+
+The full daily breakdown is in `pikachu276_nm_daily.csv`.
+
+---
+
 ## Files in this folder
 
 - `pricing-validation-investor.md` — this note.
@@ -61,6 +82,9 @@ largest marketplace says it is worth, and it does not lean high.
   series side by side.
 - `pricing_comparison_summary.csv` — one row per card for all 75, with each card's
   median eBay price, median market price, typical gap, and price ratio.
+- `pikachu276_nm_daily.csv` — 26-day (May 2–May 27 2026) daily Near Mint breakdown
+  for Pikachu ex 276: eBay count, median/avg price, gold vs CardChase split,
+  TCGPlayer NM market price, and CardChase fair market value per day.
 - `build_investor_dataset.py` — the script that produced the two CSVs from the
   validation snapshot. No scraping or network access.
 
