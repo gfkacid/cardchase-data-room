@@ -6,7 +6,7 @@ Diligence materials for CardChase.
 
 ### Pricing validation
 
-Near Mint prices from eBay sold listings vs TCGplayer market price. Pikachu ex 276 as the worked example: 486 NM sales over 26 days, 8.6% gap vs TCGplayer, 1.17x ratio. Across 75 cards ($25+): tracks within ~11% median, no upward bias.
+Near Mint prices from eBay sold listings vs TCGplayer market price. Pikachu ex 276: 486 NM sales over 26 days, 8.6% gap vs TCGplayer, 1.17x ratio.
 
 ### Data quality
 
